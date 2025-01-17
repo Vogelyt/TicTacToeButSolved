@@ -57,26 +57,26 @@ Don't worry. Even if you have little to no programming experience, we will get t
 We want to see and work together on your source code. We use the platform GitHub to share source code freely.
 
 ### Please do the following steps:
-- [ ] You [already own a Github-Account](https://github.com/login)  **or** you [create yourself a free GitHub-Account](https://github.com/join)
-- [ ] After signing in to GitHub.com:
-- [ ] Copy our source code to your GitHub-Account. Just [click here](https://github.com/muensmedia/testaufgabe/generate).
+- [x] You [already own a Github-Account](https://github.com/login)  **or** you [create yourself a free GitHub-Account](https://github.com/join)
+- [x] After signing in to GitHub.com:
+- [x] Copy our source code to your GitHub-Account. Just [click here](https://github.com/muensmedia/testaufgabe/generate).
   - **Please set the visibility of the new repository - as default - to 'Public'.**
-- [ ] Now scroll down the newly created GitHub repository until you see these instructions.
-- [ ] You continue from this point in the repository you have just created.
-- [ ] [Open Gitpod](https://gitpod.io/workspaces)
-- [ ] Click `Continue with GitHub`, choose `Authorize gitpod-io` and login with your GitHub-credentials.
-- [ ] Make sure you are on https://gitpod.io/workspaces.
-- [ ] By clicking `New Workspace` you create a new programming environment.
-- [ ] In the opening dialog, select the address of your newly created repository.
+- [x] Now scroll down the newly created GitHub repository until you see these instructions.
+- [x] You continue from this point in the repository you have just created.
+- [x] [Open Gitpod](https://gitpod.io/workspaces)
+- [x] Click `Continue with GitHub`, choose `Authorize gitpod-io` and login with your GitHub-credentials.
+- [x] Make sure you are on https://gitpod.io/workspaces.
+- [x] By clicking `New Workspace` you create a new programming environment.
+- [x] In the opening dialog, select the address of your newly created repository.
 - The GitPod workspace should open itself.
-- [ ] **Choose `Don't wait for prebuild`**
+- [x] **Choose `Don't wait for prebuild`**
 - Gitpod opens, *this can take some minutes 😳. Please be patient.*
-- [ ] **In the meantime** open https://gitpod.io/integrations
-- [ ] In the row `GitHub github.com` click the `three dots` followed by `Edit Permissions`
-- [ ] Additionally select `public_repo` and `repo` and save with `Update permissions`.
-- [ ] Confirm your changes with `Authorize gitpod-io` and your password if applicable
-- [ ] Now open these instructions. To do this, right-click on the file `README.md` and then on `Open Preview`.
-- [ ] Continue with the instructions in your Gitpod programming environment.
+- [x] **In the meantime** open https://gitpod.io/integrations
+- [x] In the row `GitHub github.com` click the `three dots` followed by `Edit Permissions`
+- [x] Additionally select `public_repo` and `repo` and save with `Update permissions`.
+- [x] Confirm your changes with `Authorize gitpod-io` and your password if applicable
+- [x] Now open these instructions. To do this, right-click on the file `README.md` and then on `Open Preview`.
+- [x] Continue with the instructions in your Gitpod programming environment.
 
 ## 3.) Change copyright
 Your Tic-tac-toe webapp consists of a frontend and backend part.  
@@ -87,18 +87,18 @@ As backend, we use a [PHP-App](https://www.php.net/manual/en/), based on the fra
 We have prepared a function that displays this game's copyright. ©️
 
 **Try this API method to display the game's copyright:**
-- [ ] In Swagger, click on `/copyright`.
-- [ ] Click on the button `Try it out`.
-- [ ] Send this request by clicking on `Execute`.
+- [x] In Swagger, click on `/copyright`.
+- [x] Click on the button `Try it out`.
+- [x] Send this request by clicking on `Execute`.
 - You can view the output with the current copyright at `Response body`.
 
 ✍🏼 **Change copyright:**  
-- [ ] Open file [app/app/App/Http/Controllers/CopyrightController.php](app/app/App/Http/Controllers/CopyrightController.php) in Gitpod.
-- [ ] You can find the copyright in a string format on line 18.
-- [ ] Use the ASCII generator linked in `CopyrightController.php` to create your personal copyright.
-- [ ] Replace our copyright `By MÜNSMEDIA GmbH` with your own copyright.
-- [ ] Try your new copyright with Swagger!
-- [ ] You need to save your changes, also named - **commit** (next section).
+- [x] Open file [app/app/App/Http/Controllers/CopyrightController.php](app/app/App/Http/Controllers/CopyrightController.php) in Gitpod.
+- [x] You can find the copyright in a string format on line 18.
+- [x] Use the ASCII generator linked in `CopyrightController.php` to create your personal copyright.
+- [x] Replace our copyright `By MÜNSMEDIA GmbH` with your own copyright.
+- [x] Try your new copyright with Swagger!
+- [x] You need to save your changes, also named - **commit** (next section).
 
 #### ✅ Create commit:
   - Click on the Tab `Source Control` on the left or you can press the keys <kbd>Strg</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> together.
@@ -118,14 +118,14 @@ Here is the structogram for one of your turns with the `play()` method.
 ![turn](./docs/struktogramm-spielzug.jpg)
 
 **To-do:**
-- [ ] Take your time to look at the structogram for one of your turns!
+- [x] Take your time to look at the structogram for one of your turns!
   - We have highlighted the parts that you still need to implement in the structogram.
-- [ ] In file [app/app/App/Http/Controllers/GameController.php](app/app/App/Http/Controllers/GameController.php) the `play()` method on line 144 still needs some logic.
+- [x] In file [app/app/App/Http/Controllers/GameController.php](app/app/App/Http/Controllers/GameController.php) the `play()` method on line 144 still needs some logic.
   - Please complete the missing logic. We left some comments in the source code to help you get started.
-- [ ] Now test it in Swagger. The function there is also called `/play`.
-- [ ] **❌ To reset the scoreboard, you can use the `DELETE /board` method in Swagger**
-- [ ] ✅ Create a commit (see above `Create commit`)
-- [ ] 🔁 Click the button `Sync changes` to upload your changes to GitHub.
+- [x] Now test it in Swagger. The function there is also called `/play`.
+- [x] **❌ To reset the scoreboard, you can use the `DELETE /board` method in Swagger**
+- [x] ✅ Create a commit (see above `Create commit`)
+- [x] 🔁 Click the button `Sync changes` to upload your changes to GitHub.
 
 ## 5.) The 🤖 turn - /play-bot
 We have already written a 🤖 (bot) for you, so you can play against him.  

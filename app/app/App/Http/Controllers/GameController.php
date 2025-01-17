@@ -161,19 +161,7 @@ class GameController extends Controller
 
         // ##### TASK 4 - Let the player make their move ###############################################################
         // =============================================================================================================
-        // Here, you need to code the logic that allows a player to make a move.
-        // You can make use of the methods offered by the $game object.
-        // =============================================================================================================
-
-        // We've previously ensured that the player is allowed to play and the game has not ended yet.
-        // The method $game->getSpace( $x, $y ) will return the content of a space - either GameMark::None (free),
-        // GameMark::Cross (belongs to the bot) or GameMark::Circle (belongs to the player).
-        // You can compare two values with
-        // $a === $b       gets true if $a is equals $b
-        // $a !== $b       gets true if $a is not equals $b
-        //
-        // Once all the checks have passed, you can finally update the game board by calling
-        // $game->setSpace( $x, $y, GameMark::Circle ).
+        
         if ($game->getSpace($x, $y) !== GameMark::None)
             return response("This space sadly has already been claimed!")->setStatusCode(403)->header('Content-Type', 'text/plain');
 
@@ -182,8 +170,12 @@ class GameController extends Controller
         // Saving the game board and output it to the player
         $game->save();
         return $this->status_output( $game );
+
     }
 
+        // ##### TASK 4 - End                            ###############################################################
+        // =============================================================================================================
+        
     /**
      * The MÜNSMEDIA GmbH bot plays one turn
      * @return Response
