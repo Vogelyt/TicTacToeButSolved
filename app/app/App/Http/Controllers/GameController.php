@@ -122,19 +122,18 @@ class GameController extends Controller
 
         // ##### TASK 6 - No cheating! #################################################################################
         
-        $lastPlayer = $game->getLastPlayer();
-
-     
-        if ($lastPlayer === GamePlayer::None) {
-            return true;
+ {
+            $lastPlayer = $game->getLastPlayer();
+        
+           
+            if ($lastPlayer === GamePlayer::None) {
+                return $player === GamePlayer::Human;
+            }
+            if ($lastPlayer === GamePlayer::Human) {
+                return $player === GamePlayer::Robot;
+            }
+            return $player === GamePlayer::Human;
         }
-        if ($lastPlayer === GamePlayer::Robot && $player === GamePlayer::Human) {
-            return true;
-        }
-        if ($lastPlayer === GamePlayer::Human && $player === GamePlayer::Robot) {
-            return true;
-        }
-        return false;
     }
         // ##### TASK 6 - End            ################################################################################
     /**
