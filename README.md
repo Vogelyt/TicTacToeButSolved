@@ -69,7 +69,7 @@ We want to see and work together on your source code. We use the platform GitHub
 - [x] By clicking `New Workspace` you create a new programming environment.
 - [x] In the opening dialog, select the address of your newly created repository.
 - The GitPod workspace should open itself.
-- [x] **Choose `Don't wait for prebuild`**
+- [ ] **Choose `Don't wait for prebuild`**
 - Gitpod opens, *this can take some minutes 😳. Please be patient.*
 - [x] **In the meantime** open https://gitpod.io/integrations
 - [x] In the row `GitHub github.com` click the `three dots` followed by `Edit Permissions`
@@ -136,22 +136,22 @@ Currently, you or the bot can play multiple turns in a row, although you are sup
 Of course, it's no fun like that 😞!
 
 **To-do:**
-- [ ] In file [app/app/App/Http/Controllers/GameController.php](app/app/App/Http/Controllers/GameController.php) the `isAllowedToPlay()` method on line 144 still needs some logic.
+- [x] In file [app/app/App/Http/Controllers/GameController.php](app/app/App/Http/Controllers/GameController.php) the `isAllowedToPlay()` method on line 144 still needs some logic.
   - Please complete the missing logic. We left some comments in the source code to help you get started.
-- [ ] Thoroughly test your changes in Swagger.
-- [ ] ✅ Create a commit (see above `Create commit`)
-- [ ] 🔁 Click the button `Sync changes` to upload your changes to GitHub.
+- [x] Thoroughly test your changes in Swagger.
+- [x] ✅ Create a commit (see above `Create commit`)
+- [x] 🔁 Click the button `Sync changes` to upload your changes to GitHub.
 
 ## 7.) Who's the winner? 🏆 
 Currently, the game is unable to display a winner.  
 Now it's your task, to do this.
 
 **To-do:**
-- [ ] Currently, the method `whoHasWon()` in [app/app/App/Http/Controllers/GameController.php](app/app/App/Http/Controllers/GameController.php) at line 104 has no game logic.
+- [x] Currently, the method `whoHasWon()` in [app/app/App/Http/Controllers/GameController.php](app/app/App/Http/Controllers/GameController.php) at line 104 has no game logic.
   - Add the missing logic. We created some hints for you as comments in the code.
-- [ ] Test your changes with Swagger as detailed as possible.
-- [ ] ✅ Create a commit (see above `Create commit`)
-- [ ] 🔁 Click on `Sync changes` to upload your changes to GitHub.
+- [x] Test your changes with Swagger as detailed as possible.
+- [x] ✅ Create a commit (see above `Create commit`)
+- [x] 🔁 Click on `Sync changes` to upload your changes to GitHub.
 
 ## Additional tasks
 You had fun by solving these small tasks above and you want more? **Ok, no problem 😈!**
@@ -164,10 +164,10 @@ It can be useful, to look at **public-methods** from `$game`:
 
 
 **To-do:**
-- [ ] Make method `someoneHasWon()` prettier
-- [ ] Test your changes with Swagger as detailed as possible.
-- [ ] ✅ Create a commit (see above `Create commit`)
-- [ ] 🔁 Click on `Sync changes` to upload your changes to GitHub.
+- [x] Make method `someoneHasWon()` prettier
+- [x] Test your changes with Swagger as detailed as possible.
+- [x] ✅ Create a commit (see above `Create commit`)
+- [x] 🔁 Click on `Sync changes` to upload your changes to GitHub.
 
 ### 9.) 4x4 Tic-tac-toe 😈
 Think about, what you need to change, so we can play a 4x4 Tic-tac-toe.
