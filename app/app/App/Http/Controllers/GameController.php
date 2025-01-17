@@ -40,7 +40,7 @@ class GameController extends Controller
      * @throws Exception
      */
     protected function someoneHasWon( GameBoard $game ): bool {
-        // ##### TASK 7 - Make this check more efficient ###############################################################
+        // ##### TASK 8 - Make this check more efficient ###############################################################
         // =============================================================================================================
         // This function checks if the game has already won. It does this by checking for every possible winning
         // condition. For example, the first block below checks if the first row contains identical marks that are not
@@ -50,67 +50,55 @@ class GameController extends Controller
         // remove spaces and line breaks ;)
         // =============================================================================================================
 
-        if (    // Check the first row
-            $game->getRow(0)->getSpace( 0 ) === $game->getRow(0)->getSpace( 1 ) &&
-            $game->getRow(0)->getSpace( 0 ) === $game->getRow(0)->getSpace( 2 ) &&
-            $game->getRow(0)->getSpace( 0 ) !== GameMark::None
-        ) return true;
+    foreach (range(0, 2) as $i) {
+        if ($game->getRow($i)->getSpace(0) === $game->getRow($i)->getSpace(1) &&
+            $game->getRow($i)->getSpace(0) === $game->getRow($i)->getSpace(2) &&
+            $game->getRow($i)->getSpace(0) !== GameMark::None
+        ) {
+            return true;
+        }
 
-        if (    // Check the second row
-            $game->getRow(1)->getSpace( 0 ) === $game->getRow(1)->getSpace( 1 ) &&
-            $game->getRow(1)->getSpace( 0 ) === $game->getRow(1)->getSpace( 2 ) &&
-            $game->getRow(1)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        if (    // Check the third row
-            $game->getRow(2)->getSpace( 0 ) === $game->getRow(2)->getSpace( 1 ) &&
-            $game->getRow(2)->getSpace( 0 ) === $game->getRow(2)->getSpace( 2 ) &&
-            $game->getRow(2)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        if (    // Check the first column
-            $game->getColumn(0)->getSpace( 0 ) === $game->getColumn(0)->getSpace( 1 ) &&
-            $game->getColumn(0)->getSpace( 0 ) === $game->getColumn(0)->getSpace( 2 ) &&
-            $game->getColumn(0)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        if (    // Check the second column
-            $game->getColumn(1)->getSpace( 0 ) === $game->getColumn(1)->getSpace( 1 ) &&
-            $game->getColumn(1)->getSpace( 0 ) === $game->getColumn(1)->getSpace( 2 ) &&
-            $game->getColumn(1)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        if (    // Check the third column
-            $game->getColumn(2)->getSpace( 0 ) === $game->getColumn(2)->getSpace( 1 ) &&
-            $game->getColumn(2)->getSpace( 0 ) === $game->getColumn(2)->getSpace( 2 ) &&
-            $game->getColumn(2)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        if (    // Check the main diagonal
-            $game->getMainDiagonal(0)->getSpace( 0 ) === $game->getMainDiagonal(0)->getSpace( 1 ) &&
-            $game->getMainDiagonal(0)->getSpace( 0 ) === $game->getMainDiagonal(0)->getSpace( 2 ) &&
-            $game->getMainDiagonal(0)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        if (    // Check the anti-diagonal
-            $game->getAntiDiagonal(0)->getSpace( 0 ) === $game->getAntiDiagonal(0)->getSpace( 1 ) &&
-            $game->getAntiDiagonal(0)->getSpace( 0 ) === $game->getAntiDiagonal(0)->getSpace( 2 ) &&
-            $game->getAntiDiagonal(0)->getSpace( 0 ) !== GameMark::None
-        ) return true;
-
-        return false;
+        if ($game->getColumn($i)->getSpace(0) === $game->getColumn($i)->getSpace(1) &&
+            $game->getColumn($i)->getSpace(0) === $game->getColumn($i)->getSpace(2) &&
+            $game->getColumn($i)->getSpace(0) !== GameMark::None
+        ) {
+            return true;
+        }
     }
 
+    if (
+        $game->getMainDiagonal(0)->getSpace(0) === $game->getMainDiagonal(0)->getSpace(1) &&
+        $game->getMainDiagonal(0)->getSpace(0) === $game->getMainDiagonal(0)->getSpace(2) &&
+        $game->getMainDiagonal(0)->getSpace(0) !== GameMark::None
+    ) {
+        return true;
+    }
+
+    if (
+        $game->getAntiDiagonal(0)->getSpace(0) === $game->getAntiDiagonal(0)->getSpace(1) &&
+        $game->getAntiDiagonal(0)->getSpace(0) === $game->getAntiDiagonal(0)->getSpace(2) &&
+        $game->getAntiDiagonal(0)->getSpace(0) !== GameMark::None
+    ) {
+        return true;
+    }
+
+    return false;
+}
     protected function whoHasWon( GameBoard $game ): ?GamePlayer {
-        // ##### TASK 8 - Check who has won ############################################################################
+        // ##### TASK 7 - Check who has won ############################################################################
         // =============================================================================================================
         // Here, you need to code a way to find out who has won the game.
         // This function needs to return null if nobody has won yet - you can use someoneHasWon( $game ) for this.
         // If someone has won, it needs to return either GamePlayer::Human or GamePlayer::Robot.
         // =============================================================================================================
-
-        return null;
-    }
+            if ($this->someoneHasWon($game)) {
+                $lastPlayer = $game->getLastPlayer();
+                return $lastPlayer;
+            }
+        
+            return null;
+        }
+        
 
     /**
      * Is the given player allowed to take the next turn?
@@ -121,8 +109,18 @@ class GameController extends Controller
     protected function isAllowedToPlay( GameBoard $game, GamePlayer $player) : bool {
 
         // ##### TASK 6 - No cheating! #################################################################################
-        
- {
+        // =============================================================================================================
+        // We don't want the player to be able to cheat. They should only be able to make a move if it is their turn.
+        // Neither the player nor the bot are allowed to make a move twice in a row. So, you need to check which player
+        // made the *last* move to find out if the player is allowed to act.
+        // =============================================================================================================
+
+        // The method $game->getLastPlayer() will return either GamePlayer::Robot (the last move was made by the bot),
+        // GamePlayer::Human (the last move was made by the player) or GamePlayer::None (this is the first move).
+        // Inside of $player you have the player which wants to play now.
+        // If he is allowed to play, you have to return true, otherwise you have to return false.
+
+        {
             $lastPlayer = $game->getLastPlayer();
         
            
@@ -135,7 +133,7 @@ class GameController extends Controller
             return $player === GamePlayer::Human;
         }
     }
-        // ##### TASK 6 - End            ################################################################################
+
     /**
      * @param int $x The x position entered by the player
      * @param int $y The y position entered by the player
@@ -162,7 +160,10 @@ class GameController extends Controller
 
         // ##### TASK 4 - Let the player make their move ###############################################################
         // =============================================================================================================
-        
+        // Here, you need to code the logic that allows a player to make a move.
+        // You can make use of the methods offered by the $game object.
+        // =============================================================================================================
+
         if ($game->getSpace($x, $y) !== GameMark::None)
             return response("This space sadly has already been claimed!")->setStatusCode(403)->header('Content-Type', 'text/plain');
 
@@ -174,9 +175,6 @@ class GameController extends Controller
 
     }
 
-        // ##### TASK 4 - End                            ###############################################################
-        // =============================================================================================================
-        
     /**
      * The MÜNSMEDIA GmbH bot plays one turn
      * @return Response
