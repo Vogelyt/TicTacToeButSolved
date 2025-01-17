@@ -189,7 +189,7 @@ class GameController extends Controller
         // =============================================================================================================
         // This first step to beat your enemy is to thoroughly understand them.
         // Luckily, as a developer, you can literally look into its head. So, check out the bot logic and try to
-        // understand what it does.
+        // understand what it does. Lol.
         // =============================================================================================================
 
         // Prevent the bot from playing if the game has already ended
