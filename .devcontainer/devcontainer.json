@@ -1,0 +1,16 @@
+{
+    "name": "codespaces-laravel",
+    "build": {
+        "dockerfile": "../.gitpod.Dockerfile",
+        "context": ".."
+    },
+    
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [8000],
+    "postCreateCommand": "cd app && cp .env.gitpod .env && composer install && php artisan key:generate && npm install && npm run dev && php -S 0.0.0.0:8000 -t public",
+	"portsAttributes": {
+		"8000": {
+			"label": "laravel"
+		}
+	}
+}
