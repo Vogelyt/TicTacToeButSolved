@@ -1,7 +1,7 @@
 {
     "name": "codespaces-laravel",
     "build": {
-        "dockerfile": "../.gitpod.Dockerfile",
+        "dockerfile": "../.codespace.Dockerfile",
         "context": ".."
     },
     
