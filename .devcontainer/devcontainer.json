@@ -1,16 +1,28 @@
+// https://aka.ms/devcontainer.json
 {
-    "name": "codespaces-laravel",
-    "build": {
-        "dockerfile": "../.codespace.Dockerfile",
-        "context": ".."
-    },
-    
-    "workspaceFolder": "/workspace",
-    "forwardPorts": [8000],
-    "postCreateCommand": "cd app && cp .env.gitpod .env && composer install && php artisan key:generate && npm install && npm run dev && php -S 0.0.0.0:8000 -t public",
-	"portsAttributes": {
-		"8000": {
-			"label": "laravel"
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": [
+		"../app/docker-compose.yml"
+	],
+	"service": "laravel.test",
+	"workspaceFolder": "/var/www/html",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				 "laravel.vscode-laravel",
+				 "mikestead.dotenv",
+				 "amiralizadeh9480.laravel-extra-intellisense",
+				 "ryannaddy.laravel-artisan",
+				 "onecentlin.laravel5-snippets",
+				 "onecentlin.laravel-blade"
+			],
+			"settings": {}
 		}
-	}
+	},
+	"remoteUser": "sail",
+	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true",
+	"forwardPorts": [8000]
+	// "runServices": [],
+	// "shutdownAction": "none",
+	
 }

@@ -14,7 +14,7 @@
     },
     "require-dev": {
         "driftingly/rector-laravel": "^1.0",
-        "laravel/sail": "^v1.28",
+        "laravel/sail": "^1.45",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^v7.10",
         "phpunit/phpunit": "^10",
